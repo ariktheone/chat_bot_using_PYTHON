@@ -42,3 +42,8 @@ Welcome to the advanced chatbot application built with Flask, HTML, CSS, and Jav
 - `static/css/styles.css`: The CSS file for styling.
 - `static/js/script.js`: The JavaScript file for client-side logic.
 - `data/training_data.json`: The initial training data for the chatbot.
+
+## Example Image
+
+![Example Image](static/images/example.png)
+
