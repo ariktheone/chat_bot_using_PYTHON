@@ -1,32 +1,33 @@
 # Advanced Chatbot
 
-This is an advanced chatbot application built with Flask, HTML, CSS, and JavaScript. The bot is trained using a JSON file and can learn new responses dynamically from user input.
+Welcome to the advanced chatbot application built with Flask, HTML, CSS, and JavaScript. This chatbot is capable of learning new responses dynamically from user input, making it a powerful tool for various applications.
 
 ## Setup
 
-1. Clone the repository:
+1. **Clone the Repository:**
     ```bash
-    git clone https://github.com/your-repo/chatbot.git
+    git clone https://github.com/ariktheone/chat_bot_using_PYTHON.git
     cd chatbot
     ```
 
-2. Create and activate a virtual environment:
+2. **Create and Activate a Virtual Environment:**
     ```bash
     python -m venv venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 
-3. Install dependencies:
+3. **Install Dependencies:**
     ```bash
     pip install flask
     ```
 
-4. Run the Flask application:
+4. **Run the Flask Application:**
     ```bash
     python chatbot.py
     ```
 
-5. Open a web browser and go to `http://127.0.0.1:5000`.
+5. **Open a Web Browser:**
+    Open a web browser and go to `http://127.0.0.1:5000`.
 
 ## Usage
 
