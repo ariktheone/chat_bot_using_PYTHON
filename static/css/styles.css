@@ -1,0 +1,142 @@
+/* Default styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.chat-container {
+    background: white;
+    min-height: 120px;
+    width: 90%; /* Adjusted width for smaller screens */
+    max-width: 630px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 80px); /* Adjusted height to accommodate the clear button */
+    position: relative; /* Positioning for the clear button */
+    font-family: Courier, monospace;
+}
+
+.chat-box {
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling within the chat box */
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    font-family: Courier, monospace;
+}
+
+.chat-box p {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.chat-box .user-message {
+    align-self: flex-end;
+    background-color: #007BFF;
+    color: white;
+    font-family: Courier, monospace;
+}
+
+.chat-box .bot-message {
+    align-self: flex-start;
+    background-color: #e0e0e0;
+    color: black;
+}
+
+.input-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+    font-family: Courier, monospace;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-top: 1px solid #ccc;
+    border-bottom-left-radius: 10px;
+}
+
+button {
+    width: 80px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    border-top: 1px solid #ccc;
+    border-bottom-right-radius: 10px;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px #ff0000;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+input[type="text"]:focus, button:focus {
+    outline: none;
+}
+
+#clear-button {
+    position: absolute; /* Position the clear button relative to the chat container */
+    bottom: 20px;
+    left: 20px;
+    width: 70px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px #ff0000;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 820px) {
+    .chat-container {
+        width: 95%; /* Adjusted width for smaller screens */
+        max-height: calc(100vh - 140px);
+        overflow: hidden;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+    }
+
+    #clear-button {
+        bottom: 10px;
+        left: 10px;
+        max-width: 50px;
+        max-width: 50px;
+        font-size: 1rem;
+        aspect-ratio: 1/1;
+    }
+}
+
+/* Scrollbar styling */
+.chat-box::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+    
+}
+
+.chat-box::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 5px; /* Border radius of the scrollbar thumb */
+}
+
+.chat-box::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar thumb on hover */
+}
