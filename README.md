@@ -23,7 +23,7 @@ Welcome to the advanced chatbot application built with Flask, HTML, CSS, and Jav
 
 4. **Run the Flask Application:**
     ```bash
-    python chatbot.py
+    python3 chatbot.py
     ```
 
 5. **Open a Web Browser:**
