@@ -16,13 +16,16 @@ if not os.path.exists(DATA_FILE):
 with open(DATA_FILE) as f:
     data = json.load(f)
 
-# Function to find a response
-def find_response(question):
-    closest_matches = difflib.get_close_matches(question.lower(), [q.lower() for entry in data['conversations'] for q in entry['questions']])
+# Function to find a response with a similarity threshold
+def find_response(question, threshold=0.8):
+    closest_matches = difflib.get_close_matches(question.lower(), [q.lower() for entry in data['conversations'] for q in entry['questions']], n=1)
     if closest_matches:
-        for entry in data['conversations']:
-            if closest_matches[0] in [q.lower() for q in entry['questions']]:
-                return entry['answer']
+        best_match = closest_matches[0]
+        similarity_ratio = difflib.SequenceMatcher(None, question.lower(), best_match).ratio()
+        if similarity_ratio >= threshold:
+            for entry in data['conversations']:
+                if best_match in [q.lower() for q in entry['questions']]:
+                    return entry['answer']
     return None
 
 # Route to handle chat

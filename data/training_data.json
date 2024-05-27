@@ -878,6 +878,12 @@
                 "ok thats fine"
             ],
             "answer": "thank you"
+        },
+        {
+            "questions": [
+                "which is your faviourit number?"
+            ],
+            "answer": "no special favourit number, as a Computerized program I don't have any faviouritism"
         }
     ]
 }
