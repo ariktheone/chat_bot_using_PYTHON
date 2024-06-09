@@ -17,13 +17,8 @@ if not os.path.exists(DATA_FILE):
 with open(DATA_FILE) as f:
     data = json.load(f)
 
-# Ensure the environment variable is set and get the API key
-api_key = os.environ.get("AIzaSyA4FNriBT0DaY2PA2L52KVO4XisXaWOwPk")
-if not api_key:
-    raise ValueError("API key not found. Please set the 'AIzaSyA4FNriBT0DaY2PA2L52KVO4XisXaWOwPk' environment variable.")
-
 # Configure Google Gemini API key
-genai.configure(api_key=api_key)
+genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 # Function to find a response with a similarity threshold
 def find_response(question, threshold=0.8):
