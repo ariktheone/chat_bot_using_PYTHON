@@ -18,7 +18,7 @@ Welcome to the advanced chatbot application built with Flask, HTML, CSS, and Jav
 
 3. **Install Dependencies:**
     ```bash
-    pip install flask
+    pip install -r requirements.txt
     ```
 
 4. **Run the Flask Application:**
