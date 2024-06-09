@@ -2,6 +2,7 @@ import os
 import json
 import difflib
 from flask import Flask, request, jsonify, render_template
+import google.generativeai as genai
 
 app = Flask(__name__)
 
@@ -15,6 +16,9 @@ if not os.path.exists(DATA_FILE):
 
 with open(DATA_FILE) as f:
     data = json.load(f)
+
+# Configure Google Gemini API key
+genai.configure(api_key=os.environ["AIzaSyA4FNriBT0DaY2PA2L52KVO4XisXaWOwPk"])
 
 # Function to find a response with a similarity threshold
 def find_response(question, threshold=0.8):
@@ -36,7 +40,27 @@ def chat():
     if response:
         return jsonify({'response': response})
     else:
-        return jsonify({'response': "I don't know the answer to that. Can you teach me?"})
+        # Use Google Gemini API for response
+        generation_config = {
+            "temperature": 1,
+            "top_p": 0.95,
+            "top_k": 64,
+            "max_output_tokens": 8192,
+            "response_mime_type": "text/plain",
+        }
+
+        model = genai.GenerativeModel(
+            model_name="gemini-1.5-flash",
+            generation_config=generation_config,
+        )
+
+        chat_session = model.start_chat(
+            history=[user_input]
+        )
+
+        gemini_response = chat_session.send_message(user_input)
+
+        return jsonify({'response': gemini_response.text})
 
 # Route to train the bot
 @app.route('/train', methods=['POST'])
